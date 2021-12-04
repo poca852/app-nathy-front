@@ -1,0 +1,9 @@
+<div class="contenedor">
+    <div class="card"
+        *ngFor="let cliente of clientes" 
+        [routerLink]="['/main/renovar', cliente._id]">
+        <p>
+            <strong>{{cliente.nombre}} - </strong>{{cliente.alias}}
+        </p>
+    </div>
+</div>

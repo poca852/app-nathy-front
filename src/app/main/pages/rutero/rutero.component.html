@@ -1,0 +1,18 @@
+<div class="contenedor">
+    <div class="header">
+        <p>Ruta para hoy ({{fecha_today | date}})</p>
+    </div>
+    <div class="card" *ngFor="let credito of creditos"
+            (click)='irAPagos(credito._id)'>
+        <p>
+            <strong>{{credito.cliente.nombre}} - </strong>{{credito.cliente.alias}}
+        </p>
+        <p>
+            <strong>Cuotas(P)</strong>: {{(credito.saldo_total / credito.valor_cuota).toFixed(1)}}
+            --
+            <strong>Saldo</strong>: Q.{{credito.saldo_total}}
+            --
+            <strong>Abonos</strong>: Q.{{credito.abonos}}
+        </p>
+    </div>
+</div>

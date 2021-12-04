@@ -1,0 +1,69 @@
+<div class="contenedor">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>{{credito?.cliente?.nombre}}</mat-card-title>
+            <mat-card-subtitle>{{credito?.cliente?.alias}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-divider inset></mat-divider>
+
+        <mat-card-content>
+            
+            <p>
+                <strong>Saldo: </strong> Q.{{credito?.saldo_total}}.00 
+            </p>
+            
+            <p>
+                <strong>Cuota: </strong> Q.{{credito?.valor_cuota | number}}
+            </p>
+
+            <p>
+                <strong>Fecha Inicio: </strong> {{credito?.fecha_inicio | date}}
+            </p>
+
+            <p>
+                <strong>Fecha Fin: </strong> {{credito?.fecha_fin | date}}
+            </p>
+
+            <p>
+                <strong>Fecha Actual: </strong> {{fecha_actual | date}}
+            </p>
+
+
+        </mat-card-content>
+        <mat-card-actions>
+            <p><strong>Ingresar Pago</strong></p>
+            <form [formGroup]="miFormulario" autocomplete="off" (ngSubmit)="guardar()">
+                <mat-tab-group mat-align-tabs="center">
+                    <mat-tab label="Cuota fija" id='tarjeta'>
+                        <!-- monto fijo -->
+                        <mat-form-field>
+                            <mat-label>Selecione la cuota</mat-label>
+                            <mat-select formControlName='pago'>
+                                <mat-option *ngFor="let cuota of cuotas" [value]="vCuota(cuota)">
+                                    {{cuota}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <button mat-raised-button 
+                                color="primary"
+                                type="submit" 
+                                [disabled]="miFormulario.invalid">Guardar</button>
+                    </mat-tab>
+
+                    <mat-tab label='Monto Variable'>
+                         <!-- monto variable -->
+                        <mat-form-field>
+                            <mat-label>Monto Variable</mat-label>
+                            <input type='number' matInput formControlName='pago'>
+                        </mat-form-field>
+                        <button mat-raised-button 
+                                color="primary"
+                                type="submit" 
+                                [disabled]="miFormulario.invalid">Guardar</button>
+                    </mat-tab>
+                </mat-tab-group>
+            </form>
+        </mat-card-actions>
+    </mat-card>
+</div>

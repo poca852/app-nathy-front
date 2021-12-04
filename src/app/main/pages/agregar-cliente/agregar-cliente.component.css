@@ -1,0 +1,22 @@
+@media screen and (max-width: 375px){
+    .contenedor{
+        display: grid;
+        justify-content: center;
+        margin-top: 25px;
+        width: 100%;
+    }
+
+    .contenedor mat-card{
+        width: 300px;
+    }
+
+    .contenedor mat-card mat-divider{
+        margin-bottom: 10px;
+    }
+
+    .contenedor mat-card mat-card-content form{
+        display: grid;
+        justify-content: stretch;
+        width: 290px;
+    }
+}

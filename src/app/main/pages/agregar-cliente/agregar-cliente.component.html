@@ -1,0 +1,57 @@
+<div class="contenedor">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Nuevo Cliente</mat-card-title>
+        </mat-card-header>
+        <mat-divider inset></mat-divider>
+        <mat-card-content>
+            <form autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="guardar()">
+                <mat-form-field>
+                    <mat-label>Dpi</mat-label>
+                    <input type="text"
+                            matInput
+                            formControlName='dpi'>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Nombre</mat-label>
+                    <input type="text"
+                            matInput
+                            formControlName='nombre'>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Alias</mat-label>
+                    <input type="text"
+                            matInput
+                            formControlName='alias'>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Ciudad</mat-label>
+                    <input type="text"
+                            matInput
+                            formControlName='ciudad'>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Celular</mat-label>
+                    <input type="text"
+                            matInput
+                            formControlName='celular'>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Direccion</mat-label>
+                    <input type="text"
+                            matInput
+                            formControlName='direccion'>
+                </mat-form-field>
+                <button mat-raised-button color="primary" type="submit"
+                    [disabled]="miFormulario.invalid">
+                    Guardar
+                </button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
